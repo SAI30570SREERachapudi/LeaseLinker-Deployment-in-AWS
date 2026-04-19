@@ -14,7 +14,7 @@ class JobSearch extends Component {
   }
 
   componentDidMount() {
-    callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+    fetch("https://abc123.execute-api.ap-south-1.amazonaws.com/properties");
   }
 
   readResponse(response) {

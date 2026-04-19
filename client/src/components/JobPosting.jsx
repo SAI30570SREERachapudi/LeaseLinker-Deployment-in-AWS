@@ -50,7 +50,7 @@ export default class PropertyPosting extends Component {
   }
 
   componentDidMount() {
-    callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+    fetch("https://abc123.execute-api.ap-south-1.amazonaws.com/properties");
   }
 
   readResponse(response) {
@@ -133,7 +133,7 @@ export default class PropertyPosting extends Component {
         let data = response.split("::");
         alert(data[1]);
         this.closepopup();
-        callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+        fetch("https://abc123.execute-api.ap-south-1.amazonaws.com/properties");
       });
   }
 

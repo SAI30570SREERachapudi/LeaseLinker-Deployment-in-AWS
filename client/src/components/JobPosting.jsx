@@ -184,7 +184,7 @@ export default class PropertyPosting extends Component {
                 <Select
                   options={countryCodes}
                   value={countryCodes.find(
-                    (item) => item.value === countryCode
+                    (item) => item.value === countryCode,
                   )}
                   onChange={(selectedOption) =>
                     this.setState({ countryCode: selectedOption.value })

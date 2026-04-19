@@ -1,6 +1,6 @@
 // API BASE URL (CHANGE THIS AFTER DEPLOYMENT)
 export const BASEURL =
-     "http://[IP_ADDRESS]" || "http://localhost:8080/";
+  "https://hu60qszdhe.execute-api.ap-south-1.amazonaws.com/";
 
 // Generic API caller (UNCHANGED LOGIC)
 export function callApi(reqmethod, url, data, responseHandler) {

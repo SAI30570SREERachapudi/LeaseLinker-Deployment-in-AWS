@@ -81,7 +81,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/ecommerce">
       <div>
         {/* Main UI */}
         <Home1WithNavigate />

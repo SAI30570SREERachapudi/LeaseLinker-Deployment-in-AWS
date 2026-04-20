@@ -214,9 +214,8 @@ export class Home1 extends Component {
 
     if (rdata[0] === "200") {
       setSession("csrid", rdata[1], 1);
-      localStorage.removeItem("loginAttempts");
-      localStorage.removeItem("blockUntil");
-      window.location.replace("/dashboard");
+      sessionStorage.setItem("fullname", username.value);
+      window.location.replace("/ecommerce/dashboard");
     } else {
       let attempts = parseInt(localStorage.getItem("loginAttempts") || "0") + 1;
       localStorage.setItem("loginAttempts", attempts);

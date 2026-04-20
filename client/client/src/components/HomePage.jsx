@@ -50,7 +50,7 @@ function HomePage({ t }) {
         }}
       >
         <video
-          src="./../../public/images/homepage.mp4"
+          src="images/homepage.mp4"
           autoPlay
           loop
           muted

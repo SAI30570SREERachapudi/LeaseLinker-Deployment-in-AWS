@@ -401,12 +401,12 @@ export class Home1 extends Component {
 
         <div className="footer1">
           <div className="footer1left">
-            <h3>{t("R Sai Sree")} 2300030570</h3>
+            <h3>R Sai Sree 2300030570</h3>
           </div>
           <div className="footer1right">
-            <img src="./images/facebook.png" alt="facebook" />
-            <img src="./images/linkedin.png" alt="linkedin" />
-            <img src="./images/twitter.png" alt="twitter" />
+            <img src="/ecommerce/images/facebook.png" />
+            <img src="/ecommerce/images/linkedin.png" />
+            <img src="/ecommerce/images/twitter.png" />
           </div>
         </div>
       </div>

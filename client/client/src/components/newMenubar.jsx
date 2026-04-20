@@ -38,9 +38,17 @@ class newmenubar extends Component {
             ))}
           </ul>
           <a href="/dashboard">
-            <img src="/images/deaf.jpg" alt="Deaf" style={{ height: "50px" }} />
+            <img
+              src="/ecommerce/images/deaf.jpg"
+              alt="Deaf"
+              style={{ height: "50px" }}
+            />
           </a>
-          <img src="/images/blind.jpg" alt="Blind" style={{ height: "50px" }} />
+          <img
+            src="/ecommerce/images/blind.jpg"
+            alt="Blind"
+            style={{ height: "50px" }}
+          />
         </div>
       </div>
     );

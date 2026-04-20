@@ -35,29 +35,7 @@ public class Property {
     @Column(name = "description")
     private String description;
 
-    // @Lob
-    // @Column(name = "image_file")
-    // private byte[] imageFile;
 
-    // @Column(name = "image_file_name")
-    // private String imageFileName; 
-    // public byte[] getImageFile() {
-    //     return imageFile;
-    // }
-
-    // public void setImageFile(byte[] imageFile) {
-    //     this.imageFile = imageFile;
-    // }
-
-    // public String getImageFileName() {
-    //     return imageFileName;
-    // }
-
-    // public void setImageFileName(String imageFileName) {
-    //     this.imageFileName = imageFileName;
-    // }
-
-    // Other getters and setters
     public Long getId() {
         return id;
     }

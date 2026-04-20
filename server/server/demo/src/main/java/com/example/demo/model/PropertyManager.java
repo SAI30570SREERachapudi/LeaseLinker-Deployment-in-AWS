@@ -44,16 +44,30 @@ public String getData(Long id)
 public Property getPropertyById(Long id) {
     return JR.findById(id).orElse(null); // Fetch the property by its ID
 }
-public String updateJob(Property J)
-{
-  try
-  {
-    JR.save(J);
-    return "200::Property details has been updated";
-  }catch(Exception e)
-  {
-    return "404::" + e.getMessage();
-  }
+public String updateJob(Property J) {
+    try {
+        Property existing = JR.findById(J.getId()).orElse(null);
+
+        if (existing == null) {
+            return "404::Property not found";
+        }
+
+        // Update fields manually
+        existing.setNameOfOwner(J.getNameOfOwner());
+        existing.setContact(J.getContact());
+        existing.setState(J.getState());
+        existing.setLocation(J.getLocation());
+        existing.setPropertyToBe(J.getPropertyToBe());
+        existing.setCost(J.getCost());
+        existing.setDescription(J.getDescription());
+
+        JR.save(existing);
+
+        return "200::Property updated successfully";
+
+    } catch (Exception e) {
+        return "400::" + e.getMessage();
+    }
 }
 public String deleteJob(Long id)
   {

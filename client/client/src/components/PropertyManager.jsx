@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./../css/PropertyManager.css";
 import Footer from "./Footer";
+import { BASEURL } from "./Api";
 
 const PropertyManager = () => {
   const [property, setProperty] = useState({
@@ -23,11 +24,23 @@ const PropertyManager = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", property.title);
+    formData.append("price", property.price);
+    formData.append("type", property.type);
+    formData.append("location", property.location);
+    formData.append(
+      "image",
+      document.querySelector('input[type="file"]').files[0],
+    );
+
     try {
-      await axios.post(
-        "http://13.206.122.248:8083/back1/api/properties",
-        property,
-      );
+      await axios.post(BASEURL + "/api/properties", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       alert("Property added successfully!");
     } catch (error) {
       console.error("Error adding property:", error);

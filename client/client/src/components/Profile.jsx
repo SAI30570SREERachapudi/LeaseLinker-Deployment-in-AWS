@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BASEURL } from "./Api";
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);
@@ -12,7 +13,7 @@ function UserProfile() {
     if (token) {
       // Get the full name of the user
       axios
-        .post("http://13.206.122.248:8083/back1/users/getfullname", {
+        .post(BASEURL + "/users/getfullname", {
           csrid: token,
         })
         .then((response) => {

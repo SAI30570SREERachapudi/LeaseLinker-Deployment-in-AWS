@@ -8,7 +8,7 @@ const Rentals = () => {
 
   useEffect(() => {
     axios
-      .get("http://13.206.122.248:8083/back1/api/properties")
+      .get(BASEURL + "/api/properties")
       .then((response) => {
         setProperties(response.data);
       })
@@ -28,7 +28,7 @@ const Rentals = () => {
             properties.map((property) => (
               <div className="property-card" key={property.id}>
                 <img
-                  src={property.image}
+                  src={`http://13.206.122.248:8083/back1/${property.image}`}
                   alt={property.title}
                   className="property-image"
                 />

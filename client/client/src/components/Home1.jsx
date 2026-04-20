@@ -130,7 +130,7 @@ export class Home1 extends Component {
 
     callApi(
       "POST",
-      BASEURL + "users/signup",
+      "http://localhost:8080/users/signup",
       data,
       this.getResponse
     );
@@ -155,7 +155,7 @@ export class Home1 extends Component {
       return;
     }
 
-    let url = BASEURL+"users/forgotpassword/" + username.value;
+    let url = "http://localhost:8080/users/forgotpassword/" + username.value;
     callApi("GET", url, "", this.forgotPasswordResponse);
   }
 
@@ -202,7 +202,7 @@ export class Home1 extends Component {
 
     callApi(
       "POST",
-      BASEURL+"users/signin",
+      "http://localhost:8080/users/signin",
       data,
       this.signinResponse.bind(this)
     );
@@ -302,7 +302,7 @@ export class Home1 extends Component {
             <ul className="NavList">
               <li id="image-logo">
                 <img
-                  src="images/1.png"
+                  src="./../../public/images/1.png"
                   width="230vh"
                   alt="logo"
                 />
@@ -364,7 +364,7 @@ export class Home1 extends Component {
                     <div className="right" onClick={this.logout}>
                       <div className="signText">
                         {/* <img
-                          src="images/logout.png"
+                          src="./images/logout.png"
                           alt="Logout"
                           width="20px"
                         /> */}
@@ -406,9 +406,9 @@ export class Home1 extends Component {
             <h3>{t("R Sai Sree")} 2300030570</h3>
           </div>
           <div className="footer1right">
-            <img src="images/facebook.png" alt="facebook" />
-            <img src="images/linkedin.png" alt="linkedin" />
-            <img src="images/twitter.png" alt="twitter" />
+            <img src="./images/facebook.png" alt="facebook" />
+            <img src="./images/linkedin.png" alt="linkedin" />
+            <img src="./images/twitter.png" alt="twitter" />
           </div>
         </div>
       </div>

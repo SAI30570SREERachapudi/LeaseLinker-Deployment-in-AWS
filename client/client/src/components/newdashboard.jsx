@@ -45,7 +45,7 @@ export default class newdashboard extends Component {
           <img
             className="logout"
             onClick={() => this.logout()}
-            src="images/logout.png"
+            src="./images/logout.png"
             alt="no"
           />
           <label>{fullname}</label>

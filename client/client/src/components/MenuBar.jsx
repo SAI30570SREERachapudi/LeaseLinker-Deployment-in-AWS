@@ -38,9 +38,9 @@ class MenuBar extends Component {
             ))}
           </ul>
           {/* <a href="/JobPost">
-            <img src="images/deaf.jpg" alt="Deaf" style={{ height: "50px" }} />
+            <img src="/images/deaf.jpg" alt="Deaf" style={{ height: "50px" }} />
           </a>
-          <img src="images/blind.jpg" alt="Blind" style={{ height: "50px" }} /> */}
+          <img src="/images/blind.jpg" alt="Blind" style={{ height: "50px" }} /> */}
         </div>
       </div>
     );

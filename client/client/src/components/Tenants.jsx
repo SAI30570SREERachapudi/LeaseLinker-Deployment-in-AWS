@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./../css/Rentals.css"; // Import the CSS file
 import Footer from "./Footer";
-import { BASEURL } from "./Api";
 
 const Rentals = () => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     axios
-      .get(BASEURL+"api/properties")
+      .get("http://localhost:8080/api/properties")
       .then((response) => {
         setProperties(response.data);
       })
@@ -28,6 +27,7 @@ const Rentals = () => {
         ) : (
           properties.map((property) => (
             <div className="property-card" key={property.id}>
+              <img src={property.image} alt={property.title} className="property-image" />
               <div className="property-info">
                 <h3>{property.title}</h3>
                 <p>Type: {property.type}</p>

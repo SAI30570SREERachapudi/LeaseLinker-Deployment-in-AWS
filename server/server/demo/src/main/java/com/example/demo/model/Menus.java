@@ -1,31 +1,42 @@
+
 package com.example.demo.model;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-
-@DynamoDBDocument
-@DynamoDBTable(tableName ="menus")
+@Entity
+@Table(name ="menus")
 public class Menus {
-    private String mid;
-    private String menu;
-    private String icon;
+	@Id
+	@Column(name = "mid")
+	Long mid;
+	@Column(name ="menu")
+	String menu;
+	@Column(name ="icon")
+	String icon;
 
-    @DynamoDBHashKey(attributeName = "mid")
-    public String getMid() { return mid; }
-    public void setMid(String mid) { this.mid = mid; }
-
-    @DynamoDBAttribute(attributeName ="menu")
-    public String getMenu() { return menu; }
-    public void setMenu(String menu) { this.menu = menu; }
-
-    @DynamoDBAttribute(attributeName ="icon")
-    public String getIcon() { return icon; }
-    public void setIcon(String icon) { this.icon = icon; }
-
-    @Override
-    public String toString() {
-        return "Menus [mid=" + mid + ", menu=" + menu + ", icon=" + icon + "]";
-    }
+	public Long getMid() {
+		return mid;
+	}
+	public void setMid(Long mid) {
+		this.mid = mid;
+	}
+	public String getMenu() {
+		return menu;
+	}
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+	@Override
+	public String toString() {
+		return "Menus [mid=" + mid + ", menu=" + menu + ", icon=" + icon + "]";
+	}
+	
 }

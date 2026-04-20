@@ -1,46 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BASEURL } from "./Api";
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
-
-  const token =
-    localStorage.getItem("auth_token") ||
-    localStorage.getItem("csrid"); // AWS-safe fallback
-
+  const token = localStorage.getItem("auth_token");
   console.log(token);
 
+  // Fetch user data when component mounts
   useEffect(() => {
-    if (!token) {
+    if (token) {
+      // Get the full name of the user
+      axios
+        .post("http://localhost:8080/users/getfullname", { csrid: token })
+        .then((response) => {
+          setUserData(response.data);
+        })
+        .catch((err) => {
+          setError("Failed to fetch user data");
+          console.error(err);
+        });
+    } else {
       setError("No token found. Please sign in.");
-      return;
     }
-
-    axios
-      .post(BASEURL + "users/getfullname", {
-        csrid: token,
-      })
-      .then((response) => {
-        // IMPORTANT: backend likely returns string like "200::NAME"
-        const res = response.data;
-
-        if (typeof res === "string" && res.includes("::")) {
-          const parts = res.split("::");
-
-          setUserData({
-            fullname: parts[1],
-            email: "N/A", // backend not providing email in this API
-          });
-        } else {
-          setUserData(res);
-        }
-      })
-      .catch((err) => {
-        setError("Failed to fetch user data");
-        console.error(err);
-      });
   }, [token]);
 
   if (error) {

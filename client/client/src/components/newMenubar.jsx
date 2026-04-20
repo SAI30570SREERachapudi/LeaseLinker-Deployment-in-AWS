@@ -3,7 +3,7 @@ import "/src/css/MenuBar.css";
 import { BASEURL, callApi, getSession } from "./Api";
 import { withTranslation } from "react-i18next";
 
-class NewMenuBar extends Component {
+class newmenubar extends Component {
   constructor() {
     super();
     this.state = { menuItems: [] };
@@ -13,13 +13,7 @@ class NewMenuBar extends Component {
   componentDidMount() {
     let csr = getSession("csrid");
     let data = JSON.stringify({ csrid: csr });
-
-    callApi(
-      "POST",
-      BASEURL + "menus/getmenusbyrole",
-      data,
-      this.loadMenus
-    );
+    callApi("POST", BASEURL + "menus/getmenusbyrole", data, this.loadMenus);
   }
 
   loadMenus(response) {
@@ -30,42 +24,27 @@ class NewMenuBar extends Component {
   render() {
     const { t } = this.props;
     const { menuItems } = this.state;
-
     return (
       <div className="menubar">
         <div className="menuheader">
           {t("MENU")} <img src="/images/menu.png" alt="" />
         </div>
-
         <div className="menulist">
           <ul>
             {menuItems.map((row) => (
-              <li
-                key={row.mid}
-                onClick={() => this.props.onMenuClick(row.mid)}
-              >
+              <li key={row.mid} onClick={() => this.props.onMenuClick(row.mid)}>
                 {t(row.menu)} <img src={row.icon} alt="" />
               </li>
             ))}
           </ul>
-
           <a href="/dashboard">
-            <img
-              src="/images/deaf.jpg"
-              alt="Deaf"
-              style={{ height: "50px" }}
-            />
+            <img src="/images/deaf.jpg" alt="Deaf" style={{ height: "50px" }} />
           </a>
-
-          <img
-            src="/images/blind.jpg"
-            alt="Blind"
-            style={{ height: "50px" }}
-          />
+          <img src="/images/blind.jpg" alt="Blind" style={{ height: "50px" }} />
         </div>
       </div>
     );
   }
 }
 
-export default withTranslation()(NewMenuBar);
+export default withTranslation()(MenuBar);

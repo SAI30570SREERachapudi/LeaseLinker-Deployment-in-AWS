@@ -8,16 +8,14 @@ import fr from "./locales/fr/translation.json";
 import te from "./locales/te/translation.json";
 import hi from "./locales/hi/translation.json";
 
-const isProd = process.env.NODE_ENV === "production";
-
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: !isProd,   // ✔ FIXED for AWS
+    debug: true,
     fallbackLng: "en",
     interpolation: {
-      escapeValue: false,
+      escapeValue: false, // React already handles escaping
     },
     resources: {
       en: { translation: en },

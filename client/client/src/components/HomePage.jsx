@@ -8,25 +8,20 @@ function HomePage({ t }) {
     const animateNumbers = (element, target) => {
       let current = 0;
       const increment = target / 50;
-
       const animate = () => {
         const interval = setInterval(() => {
           current += increment;
-
           if (current >= target) {
             current = target;
             clearInterval(interval);
-
             setTimeout(() => {
               current = 0;
               animate();
             }, 5000);
           }
-
           element.textContent = Math.floor(current);
         }, 30);
       };
-
       animate();
     };
 
@@ -42,6 +37,11 @@ function HomePage({ t }) {
       <div
         className="video-container"
         style={{
+          position: "",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           width: "100%",
           height: "100vh",
           overflow: "hidden",
@@ -50,7 +50,7 @@ function HomePage({ t }) {
         }}
       >
         <video
-          src="images/homepage.mp4"
+          src="./../../public/images/homepage.mp4"
           autoPlay
           loop
           muted
@@ -64,32 +64,28 @@ function HomePage({ t }) {
 
       <div className="HomePage1" style={{ display: "flex" }}>
         <div className="text">
-          <h5 style={{ textAlign: "left", color: "black", fontSize: "17px" }}>
+          <h5 style={{ textAlign: "left", color: "Black", fontSize: "17px" }}>
             {t("intro")}
           </h5>
         </div>
-
         <img
-          src="images/home_page_pic.jpeg"
-          alt="Home Page"
+          src="./../../public/images/home_page_pic.jpeg"
+          alt="Home Page GIF"
           style={{ width: "30%", height: "auto", marginBottom: "20px" }}
         />
       </div>
 
       <div className="Our_Achievements">
         <h2>{t("Our Achievements")}</h2>
-
         <div className="Achievements">
           <div className="Achievement">
             <h3 data-target="100">0</h3>
             <p>{t("Properties Managed")}</p>
           </div>
-
           <div className="Achievement">
             <h3 data-target="200">0</h3>
             <p>{t("Happy Residents")}</p>
           </div>
-
           <div className="Achievement">
             <h3 data-target="50">0</h3>
             <p>{t("Years of Experience")}</p>
@@ -99,18 +95,15 @@ function HomePage({ t }) {
 
       <div className="WhyOurCompany">
         <h2>{t("Why Our Company?")}</h2>
-
         <div className="CompanyInfo">
           <div className="InfoItem">
             <h3>{t("Qualified Property Dealers")}</h3>
             <p>{t("Qualified Property Dealers desc")}</p>
           </div>
-
           <div className="InfoItem">
             <h3>{t("Buy Rent Lease")}</h3>
             <p>{t("Buy Rent Lease desc")}</p>
           </div>
-
           <div className="InfoItem">
             <h3>{t("Register Properties")}</h3>
             <p>{t("Register Properties desc")}</p>

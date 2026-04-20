@@ -7,7 +7,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git
 
 # Clone your backend repo into "repo"
-RUN git clone https://github.com/gyasaswini10/Property-Management-System-React-springboot-project-.git repo
+RUN git clone https://github.com/SAI30570SREERachapudi/Property-Management-System-AWS-Deployment.git repo
 
 # Go inside backend folder
 WORKDIR /app/repo/server/server/demo

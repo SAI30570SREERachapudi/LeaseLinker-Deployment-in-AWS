@@ -1,41 +1,21 @@
 package com.example.demo.repository;
 
-import java.util.*;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.example.demo.model.*;
+import com.example.demo.model.Menus;
+
 
 @Repository
-public class MenusRepository {
+public interface MenusRepository extends JpaRepository<Menus, Long>{
 
-    @Autowired
-    private DynamoDBMapper dynamoDBMapper;
-
-    public List<Menus> findByRole(int role) {
-
-        Map<String, AttributeValue> eav = new HashMap<>();
-        eav.put(":val1", new AttributeValue().withN(String.valueOf(role)));
-
-        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("#r = :val1")
-                .addExpressionAttributeNamesEntry("#r", "role")
-                .withExpressionAttributeValues(eav);
-
-        List<Roles> roles = dynamoDBMapper.scan(Roles.class, scanExpression);
-
-        List<Menus> menusList = new ArrayList<>();
-        for (Roles r : roles) {
-            if (r.getMenus() != null) {
-                menusList.add(r.getMenus());
-            }
-        }
-        return menusList;
-    }
-
-    public List<Menus> findAll() {
-        return dynamoDBMapper.scan(Menus.class, new DynamoDBScanExpression());
-    }
+	@Query("select M from Menus M join Roles R on M.mid = R.menus.mid where R.role=:role")
+	public List<Menus> findByRole(@Param("role") int role);
+	
 }

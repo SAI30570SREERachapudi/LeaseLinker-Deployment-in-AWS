@@ -19,7 +19,7 @@ const LanguageSelector = () => {
   return (
     <div className="dropdown-container">
       <select
-        value={i18n.language || "en"}   // ✔ FIX: fallback safety
+        value={i18n.language}
         onChange={handleLanguageChange}
         className="language-dropdown"
       >

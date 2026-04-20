@@ -209,7 +209,7 @@ export class Home1 extends Component {
     if (rdata[0] === "200") {
       setSession("csrid", rdata[1], 1);
       sessionStorage.setItem("fullname", username.value);
-      this.props.navigate("/dashboard");
+      window.location.replace("/ecommerce/dashboard");
     } else {
       let attempts = parseInt(localStorage.getItem("loginAttempts") || "0") + 1;
       localStorage.setItem("loginAttempts", attempts);
@@ -230,7 +230,7 @@ export class Home1 extends Component {
     sessionStorage.removeItem("csrid");
     sessionStorage.removeItem("fullname");
     this.setState({ loggedIn: false, fullname: "" });
-    this.props.navigate("/");
+    window.location.replace("/ecommerce/");
   }
 
   render() {
@@ -295,11 +295,7 @@ export class Home1 extends Component {
           <nav className="BlackBackground">
             <ul className="NavList">
               <li id="image-logo">
-                <img
-                  src="./../../public/images/1.png"
-                  width="230vh"
-                  alt="logo"
-                />
+                <img src="/ecommerce/images/1.png" width="230vh" alt="logo" />
               </li>
               <li>
                 <Link to="/">{t("Home")}</Link>

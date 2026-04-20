@@ -15,8 +15,8 @@ function Chatbot() {
       prevMessages.map((message, index) =>
         index === prevMessages.length - 1
           ? { ...message, content: `${message.content}${content}` }
-          : message
-      )
+          : message,
+      ),
     );
   }
   function addMessage(message) {
@@ -53,7 +53,7 @@ function Chatbot() {
       <header className={styles.Header}>
         <img
           className={styles.Logo}
-          src="/images/chat.png"
+          src="/ecommerce/images/chat.png"
           style={{ width: "128px", height: "128px" }} // Inline styles added here
         />
 

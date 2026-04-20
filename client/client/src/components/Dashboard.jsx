@@ -25,7 +25,7 @@ export default class Dashboard extends Component {
   }
   logout() {
     setSession("csrid", "", -1);
-    window.location.replace("/");
+    window.location.replace("/ecommerce/");
   }
   loadComponent(mid) {
     let components = {
@@ -45,7 +45,7 @@ export default class Dashboard extends Component {
           <img
             className="logout"
             onClick={() => this.logout()}
-            src="./images/logout.png"
+            src="/ecommerce/images/logout.png"
             alt="no"
           />
           <label>{fullname}</label>

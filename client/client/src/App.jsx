@@ -1,36 +1,22 @@
 import React from "react";
-import "./i18n.jsx"; // Import before rendering components
-
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
 import "./App.css";
+import "./i18n";
+
 import Home1 from "./components/Home1";
-import Tenants from "./components/Tenants";
-import HomePage from "./components/HomePage";
+import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
-import Rentals from "./components/Tenants";
 import PropertyManager from "./components/PropertyManager";
-import Dashboard from "./components/Dashboard";
+import Rentals from "./components/Tenants";
 import ChatbotPage from "./components/ChatbotPage";
-import { useNavigate } from "react-router-dom";
-import "./i18n"; // <-- import i18n config
-import { useTranslation } from "react-i18next";
-import JobPosting from "./components/JobPosting"; // Import JobPosting component
-import LanguageSelector from "./LanguageSelector"; // Import LanguageSelector
-// Home1WithNavigate to pass useNavigate hook
-function Home1WithNavigate(props) {
-  const navigate = useNavigate();
-  return <Home1 {...props} navigate={navigate} />;
-}
 
 function App() {
   return (
-    <Router basename="/ecommerce">
+    <Router>
       <Routes>
-        {/* Home Page */}
         <Route path="/" element={<Home1 />} />
-
-        {/* Other Pages */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/AboutUs" element={<AboutUs />} />

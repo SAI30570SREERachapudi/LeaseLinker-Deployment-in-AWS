@@ -8,7 +8,7 @@ const Rentals = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/properties")
+      .get("http://13.206.122.248:8083/back1/api/properties")
       .then((response) => {
         setProperties(response.data);
       })
@@ -19,36 +19,41 @@ const Rentals = () => {
 
   return (
     <div>
-    <div className="rentals-container">
-      <h2>Available Rentals</h2>
-      <div className="property-grid">
-        {properties.length === 0 ? (
-          <p>Properties are yet to be listed PLease Visit again</p>
-        ) : (
-          properties.map((property) => (
-            <div className="property-card" key={property.id}>
-              <img src={property.image} alt={property.title} className="property-image" />
-              <div className="property-info">
-                <h3>{property.title}</h3>
-                <p>Type: {property.type}</p>
-                <p>Location: {property.location}</p>
-                <p>Price: ${property.price}</p>
+      <div className="rentals-container">
+        <h2>Available Rentals</h2>
+        <div className="property-grid">
+          {properties.length === 0 ? (
+            <p>Properties are yet to be listed PLease Visit again</p>
+          ) : (
+            properties.map((property) => (
+              <div className="property-card" key={property.id}>
+                <img
+                  src={property.image}
+                  alt={property.title}
+                  className="property-image"
+                />
+                <div className="property-info">
+                  <h3>{property.title}</h3>
+                  <p>Type: {property.type}</p>
+                  <p>Location: {property.location}</p>
+                  <p>Price: ${property.price}</p>
+                </div>
               </div>
-            </div>
-          ))
-        )}
+            ))
+          )}
+        </div>
       </div>
-    </div>
-    <div style={{
-      position: "fixed",
-      bottom: "0",
-         color: "white",
-         width: "100%",
-         padding: "10px",
-      
-    }}>
-<Footer/>
-</div>
+      <div
+        style={{
+          position: "fixed",
+          bottom: "0",
+          color: "white",
+          width: "100%",
+          padding: "10px",
+        }}
+      >
+        <Footer />
+      </div>
     </div>
   );
 };

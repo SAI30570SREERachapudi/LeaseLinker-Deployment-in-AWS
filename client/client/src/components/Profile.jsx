@@ -12,7 +12,9 @@ function UserProfile() {
     if (token) {
       // Get the full name of the user
       axios
-        .post("http://localhost:8080/users/getfullname", { csrid: token })
+        .post("http://13.206.122.248:8083/back1/users/getfullname", {
+          csrid: token,
+        })
         .then((response) => {
           setUserData(response.data);
         })

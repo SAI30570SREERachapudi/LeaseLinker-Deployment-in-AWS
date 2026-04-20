@@ -27,7 +27,7 @@ class MenuBar extends Component {
     return (
       <div className="menubar">
         <div className="menuheader">
-          {t("MENU")} <img src="/images/menu.png" alt="" />
+          {t("MENU")} <img src="./images/menu.png" alt="" />
         </div>
         <div className="menulist">
           <ul>

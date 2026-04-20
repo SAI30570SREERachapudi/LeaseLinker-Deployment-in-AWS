@@ -236,7 +236,7 @@ export class Home1 extends Component {
     sessionStorage.removeItem("csrid");
     sessionStorage.removeItem("fullname");
     this.setState({ loggedIn: false, fullname: "" });
-    window.location.replace("/");
+    this.props.navigate("/");
   }
 
   render() {
@@ -396,9 +396,7 @@ export class Home1 extends Component {
         </div>
 
         <div className="container">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
+          <HomePage />
         </div>
 
         <div className="footer1">

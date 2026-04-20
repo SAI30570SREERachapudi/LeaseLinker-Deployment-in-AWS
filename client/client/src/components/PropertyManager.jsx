@@ -17,10 +17,10 @@ const PropertyManager = () => {
     setProperty({ ...property, [e.target.name]: e.target.value });
   };
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    setProperty({ ...property, image: URL.createObjectURL(file) });
-  };
+  // const handleImageUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   setProperty({ ...property, image: URL.createObjectURL(file) });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,12 +79,12 @@ const PropertyManager = () => {
             onChange={handleChange}
             required
           />
-          <input
+          {/* <input
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
             required
-          />
+          /> */}
           <button type="submit" className="submit-btn">
             Add Property
           </button>

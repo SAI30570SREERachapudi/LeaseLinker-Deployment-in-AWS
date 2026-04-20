@@ -1,9 +1,5 @@
 package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+
 import com.example.demo.model.Property;
 import com.example.demo.model.PropertyManager;
 import com.example.demo.repository.PropertiesRepository;
@@ -36,14 +32,10 @@ public class PropertyController {
             @RequestParam("location") String location,
             @RequestParam("propertyToBe") String propertyToBe,
             @RequestParam("cost") Double cost,
-            @RequestParam("description") String description,
-            @RequestParam("image") MultipartFile image) {
+            @RequestParam("description") String description
+            ) {
         try {
-            long maxSize = 10 * 1024 * 1024;  // 10 MB
-            if (image.getSize() > maxSize) {
-                return "400::File size exceeds the maximum limit of 10 MB";
-            }
-            System.out.println("Image file size: " + image.getSize());
+         
             Property property = new Property();
             property.setNameOfOwner(nameOfOwner);
             property.setContact(contact);
@@ -52,8 +44,7 @@ public class PropertyController {
             property.setPropertyToBe(propertyToBe);
             property.setCost(cost);
             property.setDescription(description);
-            property.setImageFile(image.getBytes()); 
-            property.setImageFileName(image.getOriginalFilename());  
+              
             return JM.createJob(property);
         } catch (Exception e) {
             return "500::" + e.getMessage();
@@ -69,23 +60,7 @@ public class PropertyController {
     public String read() {
         return JM.readJobs();
     }
-    @GetMapping("/image/{id}")
-    public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
-        try {
-            Property property = JM.getPropertyById(id); // Fetch the property by ID
-            if (property != null && property.getImageFile() != null) {
-                byte[] image = property.getImageFile();
-                HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.IMAGE_JPEG);  // Or use MediaType.IMAGE_PNG depending on the image format
-                return new ResponseEntity<>(image, headers, HttpStatus.OK);
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
+  
     @GetMapping("/getdata/{id}")
     public String getData(@PathVariable("id") Long ID) {
         return JM.getData(ID);

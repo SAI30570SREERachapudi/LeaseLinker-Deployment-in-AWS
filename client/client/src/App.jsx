@@ -72,28 +72,32 @@ function Home1WithNavigate(props) {
 }
 
 // App Component
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Home1 from "./components/Home1";
+import Dashboard from "./components/Dashboard";
+import Contact from "./components/Contact";
+import AboutUs from "./components/AboutUs";
+import PropertyManager from "./components/PropertyManager";
+import Rentals from "./components/Tenants";
+import ChatbotPage from "./components/ChatbotPage";
+
 function App() {
-  const { t } = useTranslation(); // Initialize translation
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (e) => {
-    i18n.changeLanguage(e.target.value);
-  };
-
   return (
     <Router basename="/ecommerce">
-      <div>
-        {/* Main UI */}
-        <Home1WithNavigate />
-        <Routes>
-          <Route path="/Rentals" element={<Rentals />} />
-          <Route path="/PropertyManager" element={<PropertyManager />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/chatbot" element={<ChatbotPage />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-        </Routes>
-      </div>
+      <Routes>
+        {/* Full Home Layout */}
+        <Route path="/" element={<Home1 />} />
+
+        {/* Separate Pages */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/PropertyManager" element={<PropertyManager />} />
+        <Route path="/Rentals" element={<Rentals />} />
+        <Route path="/chatbot" element={<ChatbotPage />} />
+      </Routes>
     </Router>
   );
 }

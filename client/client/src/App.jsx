@@ -71,26 +71,14 @@ function Home1WithNavigate(props) {
   return <Home1 {...props} navigate={navigate} />;
 }
 
-// App Component
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import Home1 from "./components/Home1";
-import Dashboard from "./components/Dashboard";
-import Contact from "./components/Contact";
-import AboutUs from "./components/AboutUs";
-import PropertyManager from "./components/PropertyManager";
-import Rentals from "./components/Tenants";
-import ChatbotPage from "./components/ChatbotPage";
-
 function App() {
   return (
     <Router basename="/ecommerce">
       <Routes>
-        {/* Full Home Layout */}
+        {/* Home Page */}
         <Route path="/" element={<Home1 />} />
 
-        {/* Separate Pages */}
+        {/* Other Pages */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/AboutUs" element={<AboutUs />} />

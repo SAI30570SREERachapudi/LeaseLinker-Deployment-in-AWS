@@ -126,6 +126,6 @@ public class Property {
     public String toString() {
         return "Property [id=" + id + ", nameOfOwner=" + nameOfOwner + ", contact=" + contact + ", state=" + state
                 + ", location=" + location + ", propertyToBe=" + propertyToBe + ", cost=" + cost + ", description="
-                + description + ", imageFile="  + "]";
+                + description +  "]";
     }
 }

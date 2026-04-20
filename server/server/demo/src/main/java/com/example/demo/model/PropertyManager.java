@@ -1,9 +1,11 @@
 package com.example.demo.model;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.repository.PropertiesRepository;
 import com.google.gson.GsonBuilder;
-import com.example.demo.repository.*;
 @Service
 public class PropertyManager {
 @Autowired

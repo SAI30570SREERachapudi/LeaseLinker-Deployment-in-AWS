@@ -25,7 +25,7 @@ export default class newdashboard extends Component {
   }
   logout() {
     setSession("csrid", "", -1);
-    window.location.replace("/");
+    this.props.navigate("/ecommerce/");
   }
   loadComponent(mid) {
     let components = {

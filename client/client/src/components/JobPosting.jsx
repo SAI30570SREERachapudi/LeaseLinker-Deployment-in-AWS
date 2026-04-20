@@ -248,12 +248,12 @@ export default class PropertyPosting extends Component {
                 value={description}
                 onChange={(event) => this.loadInputChange(event)}
               />
-              <label>Upload Image</label>
+              {/* <label>Upload Image</label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => this.setState({ document: e.target.files[0] })}
-              />
+              /> */}
               <button onClick={() => this.saveJob()}>Save</button>
             </div>
           </div>

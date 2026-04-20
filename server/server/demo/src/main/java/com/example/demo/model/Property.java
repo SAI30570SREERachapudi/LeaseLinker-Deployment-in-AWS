@@ -35,27 +35,27 @@ public class Property {
     @Column(name = "description")
     private String description;
 
-    @Lob
-    @Column(name = "image_file")
-    private byte[] imageFile;
+    // @Lob
+    // @Column(name = "image_file")
+    // private byte[] imageFile;
 
-    @Column(name = "image_file_name")
-    private String imageFileName; 
-    public byte[] getImageFile() {
-        return imageFile;
-    }
+    // @Column(name = "image_file_name")
+    // private String imageFileName; 
+    // public byte[] getImageFile() {
+    //     return imageFile;
+    // }
 
-    public void setImageFile(byte[] imageFile) {
-        this.imageFile = imageFile;
-    }
+    // public void setImageFile(byte[] imageFile) {
+    //     this.imageFile = imageFile;
+    // }
 
-    public String getImageFileName() {
-        return imageFileName;
-    }
+    // public String getImageFileName() {
+    //     return imageFileName;
+    // }
 
-    public void setImageFileName(String imageFileName) {
-        this.imageFileName = imageFileName;
-    }
+    // public void setImageFileName(String imageFileName) {
+    //     this.imageFileName = imageFileName;
+    // }
 
     // Other getters and setters
     public Long getId() {
@@ -126,6 +126,6 @@ public class Property {
     public String toString() {
         return "Property [id=" + id + ", nameOfOwner=" + nameOfOwner + ", contact=" + contact + ", state=" + state
                 + ", location=" + location + ", propertyToBe=" + propertyToBe + ", cost=" + cost + ", description="
-                + description + ", imageFile=" + Arrays.toString(imageFile) + ", imageFileName=" + imageFileName + "]";
+                + description + ", imageFile="  + "]";
     }
 }

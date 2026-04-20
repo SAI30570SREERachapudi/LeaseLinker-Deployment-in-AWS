@@ -215,7 +215,7 @@ export class Home1 extends Component {
     if (rdata[0] === "200") {
       setSession("csrid", rdata[1], 1);
       sessionStorage.setItem("fullname", username.value);
-      window.location.replace("/ecommerce/dashboard");
+      this.props.navigate("/dashboard");
     } else {
       let attempts = parseInt(localStorage.getItem("loginAttempts") || "0") + 1;
       localStorage.setItem("loginAttempts", attempts);

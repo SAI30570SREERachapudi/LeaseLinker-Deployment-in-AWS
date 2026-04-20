@@ -386,7 +386,9 @@ export class Home1 extends Component {
         </div>
 
         <div className="container">
-          <HomePage />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
         </div>
 
         <div className="footer1">

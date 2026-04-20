@@ -1,7 +1,7 @@
 import React from "react";
 import "./i18n.jsx"; // Import before rendering components
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home1 from "./components/Home1";
 import Tenants from "./components/Tenants";

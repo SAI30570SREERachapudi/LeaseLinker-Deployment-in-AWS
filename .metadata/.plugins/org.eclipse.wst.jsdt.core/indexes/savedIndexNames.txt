@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\gyasu\Desktop\CI_CD\cicd_project_property_managment\Property-Manager\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1529220913.index
+2461411560.index
+3435648363.index
+2703246158.index
+3431626804.index
+3253249945.index
+3506010013.index

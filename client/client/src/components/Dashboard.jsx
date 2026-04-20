@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/Dashboard.css";
 import { BASEURL, callApi, getSession, setSession } from "./Api";
-import MenuBar from './../components/MenuBar.jsx';
+import MenuBar from "./../components/MenuBar.jsx";
 import JobPosting from "./JobPosting";
 import JobSearch from "./JobSearch";
 import Profile from "./Profile";
@@ -18,7 +18,7 @@ export default class Dashboard extends Component {
     let csr = getSession("csrid");
     if (csr === "") this.logout();
     let data = JSON.stringify({ csrid: csr });
-    callApi("POST", BASEURL + "users/getfullname", data, this.showFullname);
+    callApi("POST", BASEURL + "/users/getfullname", data, this.showFullname);
   }
   showFullname(response) {
     this.setState({ fullname: response });

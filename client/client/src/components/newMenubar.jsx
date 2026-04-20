@@ -13,7 +13,7 @@ class newmenubar extends Component {
   componentDidMount() {
     let csr = getSession("csrid");
     let data = JSON.stringify({ csrid: csr });
-    callApi("POST", BASEURL + "menus/getmenusbyrole", data, this.loadMenus);
+    callApi("POST", BASEURL + "/menus/getmenusbyrole", data, this.loadMenus);
   }
 
   loadMenus(response) {

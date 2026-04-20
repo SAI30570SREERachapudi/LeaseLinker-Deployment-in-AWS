@@ -50,7 +50,7 @@ export default class PropertyPosting extends Component {
   }
 
   componentDidMount() {
-    callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+    callApi("GET", BASEURL + "/jobs/read", "", this.readResponse);
   }
 
   readResponse(response) {
@@ -63,7 +63,7 @@ export default class PropertyPosting extends Component {
   }
 
   updateData(id) {
-    callApi("GET", BASEURL + "jobs/getdata/" + id, "", this.updateResponse);
+    callApi("GET", BASEURL + "/jobs/getdata/" + id, "", this.updateResponse);
   }
 
   updateResponse(response) {
@@ -89,7 +89,7 @@ export default class PropertyPosting extends Component {
   deleteData(id) {
     let resp = confirm("Click OK to confirm the deletion");
     if (resp === false) return;
-    callApi("DELETE", BASEURL + "jobs/delete/" + id, "", this.saveResponse);
+    callApi("DELETE", BASEURL + "/jobs/delete/" + id, "", this.saveResponse);
   }
 
   loadInputChange(event) {
@@ -124,7 +124,7 @@ export default class PropertyPosting extends Component {
       formData.append("image", document); // Adjust the backend parameter to handle "image"
     }
 
-    fetch(BASEURL + "jobs/upload", {
+    fetch(BASEURL + "/jobs/upload", {
       method: "POST",
       body: formData,
     })
@@ -133,7 +133,7 @@ export default class PropertyPosting extends Component {
         let data = response.split("::");
         alert(data[1]);
         this.closepopup();
-        callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+        callApi("GET", BASEURL + "/jobs/read", "", this.readResponse);
       });
   }
 
@@ -184,7 +184,7 @@ export default class PropertyPosting extends Component {
                 <Select
                   options={countryCodes}
                   value={countryCodes.find(
-                    (item) => item.value === countryCode
+                    (item) => item.value === countryCode,
                   )}
                   onChange={(selectedOption) =>
                     this.setState({ countryCode: selectedOption.value })

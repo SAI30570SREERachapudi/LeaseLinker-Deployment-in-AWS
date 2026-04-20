@@ -14,7 +14,7 @@ class JobSearch extends Component {
   }
 
   componentDidMount() {
-    callApi("GET", BASEURL + "jobs/read", "", this.readResponse);
+    callApi("GET", BASEURL + "/jobs/read", "", this.readResponse);
   }
 
   readResponse(response) {

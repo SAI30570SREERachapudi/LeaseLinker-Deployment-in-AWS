@@ -18,7 +18,7 @@ export default class newdashboard extends Component {
     let csr = getSession("csrid");
     if (csr === "") this.logout();
     let data = JSON.stringify({ csrid: csr });
-    callApi("POST", BASEURL + "users/getfullname", data, this.showFullname);
+    callApi("POST", BASEURL + "/users/getfullname", data, this.showFullname);
   }
   showFullname(response) {
     this.setState({ fullname: response });
